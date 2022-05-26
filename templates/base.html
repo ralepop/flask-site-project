@@ -10,26 +10,27 @@
         .center{
             padding: 10px;
             border: 3px solid green;
-            text-align: center;
             font-size: 50px;
-            
+            text-align: center;
         }
         .lista{
             font-size: 20px;
+
         }
     </style>
 </head>
 <body>
     <div class="center">
-        <a href="/">Početna</a>&nbsp;&nbsp;
-        <a href="/form">Pošalji Mejl</a>
+        <a href="{{ url_for('index') }}">Početna</a>&nbsp;&nbsp;
+        <a href="{{ url_for('form') }}">Pošalji Mejl</a>&nbsp;&nbsp;
+        <a href="{{ url_for('login') }}">Uloguj se</a>
     </div>
 
     {% with messages = get_flashed_messages() %}
     {% if messages %}
     <ul class="lista">
         {% for message in messages %}
-        <li>{{ message }}</li>
+        <li><i>{{ message }}</i></li>
         {% endfor %}
     </ul>
 

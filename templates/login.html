@@ -6,22 +6,16 @@
         text-align: center;
         font-size: 50px;
     }
-    .malo{
-        text-align: center;
-        font-size: 20px;
-    }
 </style>
-<h1>Pošalji mejl</h1>
 
-<div><p class="malo">Šalje se sa {{ mail_sender }}</p></div>
+<h1>Uloguj se</h1>
 
 <form action="" method="post" novalidate>
     {{ form.hidden_tag() }}
-    <div>
     <p>
-        {{ form.first_name.label }}<br>
-        {{ form.first_name }}
-        {% for error in form.first_name.errors %}
+        {{ form.username.label }}<br>
+        {{ form.username }}
+        {% for error in form.username.errors %}
         {% if error == 'This field is required.' %}
         <span style="color: red;">Ovo polje je obavezno</span>    
         {% else %}
@@ -30,9 +24,9 @@
         {% endfor %}
     </p>
     <p>
-        {{ form.email.label }}<br>
-        {{ form.email }}
-        {% for error in form.email.errors %}
+        {{ form.password.label }}<br>
+        {{ form.password }}
+        {% for error in form.password.errors %}
         {% if error == 'This field is required.' %}
         <span style="color: red;">Ovo polje je obavezno</span>    
         {% else %}
@@ -40,17 +34,10 @@
         {% endif %}
         {% endfor %}
     </p>
-    <p>
-        {{ form.message.label }}<br>
-        {{ form.message }}
-        {% for error in form.message.errors %}
-        <span style="color: red;">[{{ error }}]</span>
-        {% endfor %}
-    </p>
+    <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
     <p>
         {{ form.submit() }}
     </p>
-</div>
 </form>
 
 {% endblock %}
